@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xplore_Lite", "Xplore_Lite.csproj", "{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Debug|iPhone.Build.0 = Debug|iPhone
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Release|iPhone.ActiveCfg = Release|iPhone
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Release|iPhone.Build.0 = Release|iPhone
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Xplore_Lite.csproj
+	EndGlobalSection
+EndGlobal
