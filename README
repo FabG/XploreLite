@@ -5,3 +5,4 @@ Little App using Monotouch evaluation version
 to build a light version of our Xplore Product
 with a simple map pod, grid/chart pod feeding
 off our Development servers where the data resides in Vertica.
+
