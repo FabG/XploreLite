@@ -7,6 +7,9 @@ namespace Xplore_Lite
 {
 	public partial class FlipsideViewController : UIViewController
 	{
+
+		UIImageView _saxImageView;
+
 		public FlipsideViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -32,6 +35,10 @@ namespace Xplore_Lite
 			base.ViewDidLoad ();
 			
 			// Any additional setup after loading the view, typically from a nib.
+			_saxImageView = new UIImageView(UIImage.FromBundle("Images/SAxC_238x31.png"));
+			_saxImageView.Frame = new Rectangle (14,50,_saxImageView.Image.CGImage.Width, _saxImageView.Image.CGImage.Height);     
+			View.AddSubview (_saxImageView);
+
 		}
 		
 		public override void ViewDidUnload ()

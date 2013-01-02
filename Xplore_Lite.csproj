@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="ShinobiCharts">
+      <HintPath>..\ShinobiCharts Trial\MonoTouch\lib\ShinobiCharts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -92,8 +96,6 @@
     <Content Include="Images\iphone-wallpaper-016.jpg" />
     <Content Include="Images\iphone-wallpaper-046.jpg" />
     <Content Include="Images\SAx_320x480.png" />
-    <Content Include="Images\SAX-C projectavatar_48x48.png" />
-    <Content Include="Images\SAX-M projectavatar_48x48.png" />
     <Content Include="Images\SAxM_Launch_Pad_CIA_150x150.png" />
     <Content Include="Images\SAxM_Launch_Pad_COA_150x150.png" />
     <Content Include="Images\SAxM_Launch_Pad_DA_150x150.png" />
@@ -101,8 +103,13 @@
     <Content Include="Images\SAxM_Launch_Pad_TPA_150x150.png" />
     <Content Include="Images\SAxM_Launch_Pad_UR_150x150.png" />
     <Content Include="Images\Enhanced_medallion29x29.png" />
-    <Content Include="Images\DAx_Enhanced_medallion114x114.png" />
-    <Content Include="Images\DAx_Enhanced_medallion58x58.png" />
+    <Content Include="Images\SAX-C_projectavatar_48x48.png" />
+    <Content Include="Images\SAX-M_projectavatar_48x48.png" />
+    <Content Include="Images\SAxC_238x31.png" />
+    <Content Include="Images\SAxM_238x31.png" />
+    <Content Include="Images\SAx_Enhanced_medallion58x58.png" />
+    <Content Include="Images\SAx_Enhanced_medallion114x114.png" />
+    <Content Include="Images\Data_Services_Consumption.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Default.png" />

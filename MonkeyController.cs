@@ -22,5 +22,19 @@ namespace Xplore_Lite
 			Console.WriteLine("Back to Main pressed");
 			DismissModalViewControllerAnimated(true);
 		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			Console.WriteLine("MonkeyControl view load");
+			//Assign images to buttons
+			buttonSAxMDSA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_DSA_150x150.png"), UIControlState.Normal);
+			buttonSAxMTPA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_TPA_150x150.png"), UIControlState.Normal);
+			buttonSAxMDA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_DA_150x150.png"), UIControlState.Normal);
+			buttonSAxMCIA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_CIA_150x150.png"), UIControlState.Normal);
+			buttonSAxMCOA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_COA_150x150.png"), UIControlState.Normal);
+			buttonSAxMUR.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_UR_150x150.png"), UIControlState.Normal);
+
+		}
 	}
 }

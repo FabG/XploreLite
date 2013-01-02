@@ -8,8 +8,8 @@
 	<array>
 		<string>Images/Enhanced_medallion57x57.png</string>
 		<string>Images/Enhanced_medallion29x29.png</string>
-		<string>Images/DAx_Enhanced_medallion114x114.png</string>
-		<string>Images/DAx_Enhanced_medallion58x58.png</string>
+		<string>Images/SAx_Enhanced_medallion114x114.png</string>
+		<string>Images/SAx_Enhanced_medallion58x58.png</string>
 	</array>
 	<key>UIDeviceFamily</key>
 	<array>

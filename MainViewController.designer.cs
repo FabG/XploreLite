@@ -11,7 +11,23 @@ namespace Xplore_Lite
 	[Register ("MainViewController")]
 	partial class MainViewController
 	{
-		[Action ("showInfo:")]
-		partial void showInfo (MonoTouch.Foundation.NSObject sender);
+		[Outlet]
+		MonoTouch.UIKit.UIButton buttonSaxMLaunch { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton buttonSaxCLaunch { get; set; }
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (buttonSaxMLaunch != null) {
+				buttonSaxMLaunch.Dispose ();
+				buttonSaxMLaunch = null;
+			}
+
+			if (buttonSaxCLaunch != null) {
+				buttonSaxCLaunch.Dispose ();
+				buttonSaxCLaunch = null;
+			}
+		}
 	}
 }
