@@ -96,6 +96,10 @@
     <Compile Include="VolDistrController.designer.cs">
       <DependentUpon>VolDistrController.cs</DependentUpon>
     </Compile>
+    <Compile Include="TopProvController.cs" />
+    <Compile Include="TopProvController.designer.cs">
+      <DependentUpon>TopProvController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
