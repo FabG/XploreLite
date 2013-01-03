@@ -28,8 +28,9 @@ namespace Xplore_Lite
 
 			// Bar series
 			Steema.TeeChart.Styles.Bar bar1 = new Steema.TeeChart.Styles.Bar(); 
+			//Steema.TeeChart.Styles.Pie bar1 = new Steema.TeeChart.Styles.Pie(); 
 			chart1.Series.Add(bar1);
-			//chart1.Aspect.View3D = true;
+			chart1.Aspect.View3D = true;
 
 			// Header
 			//chart1.Header.Text = "Data Services Consumption";

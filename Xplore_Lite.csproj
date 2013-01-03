@@ -88,6 +88,10 @@
     <Compile Include="DataSrvcConsViewController.designer.cs">
       <DependentUpon>DataSrvcConsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="DistrDevTypController.cs" />
+    <Compile Include="DistrDevTypController.designer.cs">
+      <DependentUpon>DistrDevTypController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
