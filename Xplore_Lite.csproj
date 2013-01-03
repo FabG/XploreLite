@@ -62,6 +62,9 @@
     <Reference Include="ShinobiCharts">
       <HintPath>..\ShinobiCharts Trial\MonoTouch\lib\ShinobiCharts.dll</HintPath>
     </Reference>
+    <Reference Include="IOSTChart">
+      <HintPath>..\TeeChartNETMonoTouchEvaluation_v2012_0_10_03\sources\IOSTChart.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -80,6 +83,10 @@
     <Compile Include="MonkeyController.cs" />
     <Compile Include="MonkeyController.designer.cs">
       <DependentUpon>MonkeyController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSrvcConsViewController.cs" />
+    <Compile Include="DataSrvcConsViewController.designer.cs">
+      <DependentUpon>DataSrvcConsViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

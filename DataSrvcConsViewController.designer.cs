@@ -8,12 +8,18 @@ using MonoTouch.Foundation;
 
 namespace Xplore_Lite
 {
-	[Register ("MainViewController")]
-	partial class MainViewController
+	[Register ("DataSrvcConsViewController")]
+	partial class DataSrvcConsViewController
 	{
+		[Outlet]
+		MonoTouch.UIKit.UIView DSCUIView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (DSCUIView != null) {
+				DSCUIView.Dispose ();
+				DSCUIView = null;
+			}
 		}
 	}
 }

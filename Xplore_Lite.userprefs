@@ -1,16 +1,15 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MainViewController.cs">
-    <Files>
-      <File FileName="Main.cs" Line="1" Column="1" />
-      <File FileName="MonkeyController.cs" Line="25" Column="3" />
-      <File FileName="MainViewController.cs" Line="24" Column="24" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="Xplore_Lite" expanded="True">
-            <Node name="FlipsideViewController.cs" expanded="True" />
+            <Node name="References" expanded="True" />
+            <Node name="DataSrvcConsViewController.cs" expanded="True" />
+            <Node name="FlipsideViewController.cs" expanded="True">
+              <Node name="FlipsideViewController.designer.cs" selected="True" />
+            </Node>
             <Node name="MainViewController.cs" expanded="True" />
             <Node name="MonkeyController.cs" expanded="True" />
           </Node>
