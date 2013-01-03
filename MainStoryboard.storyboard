@@ -276,7 +276,42 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1058" y="89"/>
+            <point key="canvasLocation" x="751" y="-200"/>
+        </scene>
+        <!--Vol Distr Controller - Volume Distribution-->
+        <scene sceneID="Qca-lP-zWO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qp3-Af-lrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="67I-mB-gb5" customClass="VolDistrController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GuD-tM-gl4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Gfg-68-MQN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Indicators" id="Zr1-sb-0Xa"/>
+                                    <barButtonItem title="Date" id="a4u-Xi-wuB"/>
+                                    <barButtonItem title="Device" id="es5-rH-bj8"/>
+                                    <barButtonItem title="Customers" id="3nL-HB-7uP"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" id="jtk-76-3yv">
+                                <rect key="frame" x="7" y="51" width="307" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Volume Distribution" id="FUK-pC-izh"/>
+                    <connections>
+                        <outlet property="VDTUIView" destination="jtk-76-3yv" id="QYV-um-B2l"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1160" y="353"/>
         </scene>
         <!--Table View Controller - DSA-->
         <scene sceneID="Org-rw-Oij">
@@ -349,6 +384,9 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="67I-mB-gb5" kind="push" id="3Ea-gX-EGV"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pou-N2-jJw" style="IBUITableViewCellStyleDefault" id="c8h-Uw-drM">
                                         <rect key="frame" x="0.0" y="154" width="320" height="44"/>
@@ -426,7 +464,7 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="H9R-4j-aKT">
-                                <rect key="frame" x="20" y="53" width="280" height="343"/>
+                                <rect key="frame" x="9" y="53" width="301" height="353"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -439,7 +477,7 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1057" y="649"/>
+            <point key="canvasLocation" x="1099" y="-200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0bp-ec-ZLu">
@@ -577,6 +615,12 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                 <relationship kind="outlet" name="buttonSAxMDSA" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonSAxMTPA" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonSAxMUR" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="VolDistrController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VolDistrController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="VDTUIView" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>

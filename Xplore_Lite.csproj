@@ -92,6 +92,10 @@
     <Compile Include="DistrDevTypController.designer.cs">
       <DependentUpon>DistrDevTypController.cs</DependentUpon>
     </Compile>
+    <Compile Include="VolDistrController.cs" />
+    <Compile Include="VolDistrController.designer.cs">
+      <DependentUpon>VolDistrController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
