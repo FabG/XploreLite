@@ -6,12 +6,12 @@
         <State expanded="True">
           <Node name="Xplore_Lite" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="DataSrvcConsViewController.cs" expanded="True" />
-            <Node name="FlipsideViewController.cs" expanded="True">
-              <Node name="FlipsideViewController.designer.cs" selected="True" />
-            </Node>
+            <Node name="DataSrvcConsViewController.cs" selected="True" />
+            <Node name="DistrDevTypController.cs" expanded="True" />
             <Node name="MainViewController.cs" expanded="True" />
             <Node name="MonkeyController.cs" expanded="True" />
+            <Node name="TopProvController.cs" expanded="True" />
+            <Node name="VolDistrController.cs" expanded="True" />
           </Node>
         </State>
       </Pad>
