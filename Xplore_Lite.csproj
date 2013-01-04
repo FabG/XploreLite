@@ -65,6 +65,9 @@
     <Reference Include="IOSTChart">
       <HintPath>..\TeeChartNETMonoTouchEvaluation_v2012_0_10_03\sources\IOSTChart.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,6 +103,7 @@
     <Compile Include="TopProvController.designer.cs">
       <DependentUpon>TopProvController.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -132,5 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\saxm.comscore.com" />
   </ItemGroup>
 </Project>

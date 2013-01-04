@@ -2,6 +2,8 @@ IOSTChart.dll
 Mono.Security.dll
 ShinobiCharts.dll
 System.Core.dll
+System.Runtime.Serialization.dll
+System.ServiceModel.dll
 System.Xml.dll
 System.dll
 mscorlib.dll
