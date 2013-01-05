@@ -1,11 +1,18 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataSrvcConsViewController.cs">
+    <Files>
+      <File FileName="DataSrvcConsViewController.cs" Line="197" Column="35" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="Xplore_Lite" expanded="True">
             <Node name="References" expanded="True" />
+            <Node name="DistrDevTypController.cs" expanded="True" />
+            <Node name="MainStoryboard.storyboard" selected="True" />
+            <Node name="TopProvController.cs" expanded="True" />
+            <Node name="VolDistrController.cs" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -13,7 +20,9 @@
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
+        <State>
+          <Value>paramsDto</Value>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

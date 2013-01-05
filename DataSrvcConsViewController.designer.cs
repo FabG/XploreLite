@@ -13,12 +13,20 @@ namespace Xplore_Lite
 	{
 		[Outlet]
 		MonoTouch.UIKit.UIView DSCUIView { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel DSCLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (DSCUIView != null) {
 				DSCUIView.Dispose ();
 				DSCUIView = null;
+			}
+
+			if (DSCLabel != null) {
+				DSCLabel.Dispose ();
+				DSCLabel = null;
 			}
 		}
 	}
