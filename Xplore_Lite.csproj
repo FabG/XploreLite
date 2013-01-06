@@ -105,6 +105,10 @@
       <DependentUpon>TopProvController.cs</DependentUpon>
     </Compile>
     <Compile Include="DataProviderService.cs" />
+    <Compile Include="SAxMLaunchPadController.cs" />
+    <Compile Include="SAxMLaunchPadController.designer.cs">
+      <DependentUpon>SAxMLaunchPadController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -15,7 +15,7 @@ namespace Xplore_Lite
 		MonoTouch.UIKit.UIView DSCUIView { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel DSCLabel { get; set; }
+		MonoTouch.UIKit.UIActivityIndicatorView DSCActivityIndicator { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -24,9 +24,9 @@ namespace Xplore_Lite
 				DSCUIView = null;
 			}
 
-			if (DSCLabel != null) {
-				DSCLabel.Dispose ();
-				DSCLabel = null;
+			if (DSCActivityIndicator != null) {
+				DSCActivityIndicator.Dispose ();
+				DSCActivityIndicator = null;
 			}
 		}
 	}

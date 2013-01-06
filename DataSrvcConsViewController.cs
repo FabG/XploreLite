@@ -33,6 +33,7 @@ namespace Xplore_Lite
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			this.DSCActivityIndicator.StartAnimating();
 
 			// ************** ORIGINAL CODE WITH STATIC BAR CHART *************************
 			//chart1.Frame = DSCUIView.Frame;
@@ -313,6 +314,7 @@ namespace Xplore_Lite
 						// that is running the main loop
 
 						InvokeOnMainThread (delegate {
+							this.DSCActivityIndicator.StopAnimating();
 							i=0;
 							pie_DSC.Clear();
 							foreach (string row in metadataRowListName)
