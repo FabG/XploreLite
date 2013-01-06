@@ -81,7 +81,11 @@ namespace Xplore_Lite
 
 			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
 
-			string[] metadataCol;
+			// Lists to handle the Series name/data points coming from the webservice
+			List<String> metadataColListName;
+			List<String> metadataColListId;
+			List<String> metadataRowListName;
+			List<String> metadataRowListValue;
 			int i = 0;
 
 			// Context Info Parameter
@@ -198,7 +202,7 @@ namespace Xplore_Lite
 					Console.WriteLine("Response received");
 
 					string xmlresultObject = ev.Result.ResultObject.ToString();
-					Console.WriteLine("xmlresultObject = {0}", xmlresultObject);
+					// Console.WriteLine("xmlresultObject = {0}", xmlresultObject);
 					//xmlresultObject=
 					/*<GetData><MetaData>
 						<Columns>
@@ -217,46 +221,8 @@ namespace Xplore_Lite
 					  </GetData>
 							*/
 
-					var memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes (ev.Result.ResultObject.ToString()));
-
-					// Read the XML from memstream with XElement from XLinq
-					XElement xElementFromStream = XElement.Load(memStream);
-
-					// Assign children to list
-					if (xElementFromStream != null) 
-					{ 
-						// Get the Metadata properties
-						System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = xElementFromStream.Descendants("MetaData").Descendants("col");;
-						metadataCol = new string[10];
-
-						List<String> metadataColList = new List<String>();
-
-
-
-						foreach(XElement col in xmlDataSerie) 
-						{
-							Console.WriteLine("Metadata col :{0}", col.ToString());
-							Console.WriteLine("  - Metadata col id :{0}", col.Attribute("id").Value.ToString());
-							Console.WriteLine("  - Metadata col name :{0}", col.Attribute("name").Value.ToString());
-							metadataColList.Add(col.Attribute("name").Value.ToString());
-						}
-
-						Console.WriteLine("Total Metadata Columns: {0}", metadataColList.Count);
-
-						foreach (string column in metadataColList)
-						{
-							Console.WriteLine("metadataCol array[{0}]:{1}", i, column);
-							i++;
-						}
-
-
-					} 
-
-					// Series Name
-
-
 					// FirstNode is <MetaData>
-					Console.WriteLine("xmlFromMemStream.FirstNode:{0}",xElementFromStream.FirstNode);
+					// Console.WriteLine("xmlFromMemStream.FirstNode:{0}",xElementFromStream.FirstNode);
 					/* xElementFromStream.FirstNode = 
 					  <MetaData>
 						  <Columns>
@@ -272,9 +238,9 @@ namespace Xplore_Lite
 						  </AdditionalProperties>
 					 </MetaData>
 					 */
-
+					
 					// LastNode is <Data>
-					Console.WriteLine("xmlFromMemStream.LastNode:{0}",xElementFromStream.LastNode);
+					// Console.WriteLine("xmlFromMemStream.LastNode:{0}",xElementFromStream.LastNode);
 					/* xml.LastNode =
 					 	<Data>
 							<row No="1" Network_id="6" service_x0020_group="Communication / Messaging" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="-979132663" />
@@ -286,18 +252,69 @@ namespace Xplore_Lite
 					 	<Data>
 					*/
 
-					// Identify series in the <Data>
+					var memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes (ev.Result.ResultObject.ToString()));
 
-				
+					// Read the XML from memstream with XElement from XLinq
+					XElement xElementFromStream = XElement.Load(memStream);
 
-					var doc = XDocument.Parse(ev.Result.ResultObject.ToString());
-					var xmlresultObjects = doc.Root.Descendants("GetData");
-					Console.WriteLine("xmlresultObjects={0}", xmlresultObjects);
-					//var des = ((xml.LastNode as XElement).LastNode as XElement).Attribute("QOS").Value.ToString();
-					//MonoTouch.UIKit.UIApplication.SharedApplication.InvokeOnMainThread(delegate {this.DSCLabel.Text = des;});
+					// Assign Metadata and Data children to 2 lists that will feed the Chart
+					if (xElementFromStream != null) 
+					{ 
+						// ********* XML MetaData ********
+						System.Collections.Generic.IEnumerable<XElement> xmlMetaDataSerie = 
+							xElementFromStream.Descendants("MetaData").Descendants("col");;
+						metadataColListName = new List<String>();
+						metadataColListId = new List<String>();
 
-					//pie_DSC.Add(xml.FirstNode);
-					//this.DSCLabel.Text = "TEST";
+						// Add the name tag content to a list to pass it to the chart
+						foreach(XElement col in xmlMetaDataSerie) 
+						{
+							//Console.WriteLine("Metadata col :{0}", col.ToString());
+							//Console.WriteLine("  - Metadata col id :{0}", col.Attribute("id").Value.ToString());
+							//Console.WriteLine("  - Metadata col name :{0}", col.Attribute("name").Value.ToString());
+							metadataColListName.Add(col.Attribute("name").Value.ToString());
+							metadataColListId.Add(col.Attribute("id").Value.ToString());
+						}
+						Console.WriteLine("Total Metadata Columns: {0}", metadataColListName.Count);
+
+						foreach (string column in metadataColListName)
+						{
+							Console.WriteLine(" - metadataColList[{0}]: Name={1} | Id={2}", i, 
+							                  metadataColListName[i], metadataColListId[i]);
+							i++;
+						}
+
+
+
+						// ********* XML Data ********
+						// Get the Data properties for Series Names and Points
+						System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = 
+							xElementFromStream.Descendants("Data").Descendants("row");;
+						metadataRowListName = new List<String>();
+						metadataRowListValue = new List<String>();
+						
+						// Add the name tag content to a list to pass it to the chart
+						foreach(XElement row in xmlDataSerie) 
+						{
+							//Console.WriteLine("Data row :{0}", row.ToString());
+							metadataRowListName.Add(row.Attribute("service_x0020_group").Value.ToString());
+							metadataRowListValue.Add(row.Attribute("Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_").Value.ToString());
+						}
+						
+						Console.WriteLine("Total Data Rows: {0}", metadataRowListName.Count);
+						i=0;
+						foreach (string row in metadataRowListName)
+						{
+							Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
+							                  metadataRowListName[i], metadataRowListValue[i]);
+							i++;
+						}
+
+						//Pass Serie Names and values to chart
+
+					} 
+
+
 
 				}
 

@@ -67,6 +67,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonSAxC" destination="Ys0-Sn-38s" id="BzM-FN-8A0"/>
+                        <outlet property="buttonSAxM" destination="bjL-O0-QAJ" id="Xw3-6e-E1X"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-273" y="-110"/>
@@ -651,6 +655,10 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
         </class>
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buttonSAxC" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSAxM" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="MonkeyController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MonkeyController.h"/>

@@ -12,5 +12,13 @@ namespace Xplore_Lite
 		public MainViewController (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			//Assign images to Launch buttons
+			this.buttonSAxM.SetImage(UIImage.FromFile ("Images/SAxM_238x31.png"), UIControlState.Normal);
+			this.buttonSAxC.SetImage(UIImage.FromFile ("Images/SAxC_238x31.png"), UIControlState.Normal);
+		}
 	}
 }
