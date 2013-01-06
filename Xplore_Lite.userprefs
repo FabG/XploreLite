@@ -1,9 +1,19 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataSrvcConsViewController.cs">
+    <Files>
+      <File FileName="DataSrvcConsViewController.cs" Line="275" Column="2" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State />
+        <State expanded="True">
+          <Node name="Xplore_Lite" expanded="True">
+            <Node name="DataSrvcConsViewController.cs" expanded="True" selected="True" />
+            <Node name="MainViewController.cs" expanded="True" />
+            <Node name="SAxMLaunchPadController.cs" expanded="True" />
+            <Node name="TopProvController.cs" expanded="True" />
+          </Node>
+        </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />

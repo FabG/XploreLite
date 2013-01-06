@@ -1,0 +1,271 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E28032800000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3D0B000000000000000000 /* UIKit.framework */; };
+		AB0681800000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C35A000000000000000000 /* MapKit.framework */; };
+		738CD0800000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F49A9000000000000000000 /* Foundation.framework */; };
+		3C131F800000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CFF8000000000000000000 /* CoreGraphics.framework */; };
+		6CC652800000000000000000 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88832B000000000000000000 /* MainStoryboard.storyboard */; };
+		354CA1800000000000000000 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 51097A000000000000000000 /* Default.png */; };
+		FDD2F0800000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 198FC9000000000000000000 /* AppDelegate.h */; };
+		AA9C67000000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6593F800000000000000000 /* AppDelegate.m */; };
+		7322B6000000000000000000 /* MainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 8EDF8E800000000000000000 /* MainViewController.h */; };
+		1FEC2C800000000000000000 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA905000000000000000000 /* MainViewController.m */; };
+		E8727B800000000000000000 /* FlipsideViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 42F540000000000000000000 /* FlipsideViewController.h */; };
+		953BF2000000000000000000 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F8CA800000000000000000 /* FlipsideViewController.m */; };
+		5DC241000000000000000000 /* DataSrvcConsViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 797F19800000000000000000 /* DataSrvcConsViewController.h */; };
+		A8BB78000000000000000000 /* DataSrvcConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264890000000000000000000 /* DataSrvcConsViewController.m */; };
+		D31206800000000000000000 /* DistrDevTypController.h in Sources */ = {isa = PBXBuildFile; fileRef = EECEDF000000000000000000 /* DistrDevTypController.h */; };
+		7FDB7D000000000000000000 /* DistrDevTypController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9855800000000000000000 /* DistrDevTypController.m */; };
+		4861CC000000000000000000 /* VolDistrController.h in Sources */ = {isa = PBXBuildFile; fileRef = 641EA4800000000000000000 /* VolDistrController.h */; };
+		F52B42800000000000000000 /* VolDistrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E81B000000000000000000 /* VolDistrController.m */; };
+		BDB191800000000000000000 /* TopProvController.h in Sources */ = {isa = PBXBuildFile; fileRef = D96E6A000000000000000000 /* TopProvController.h */; };
+		6A7B08000000000000000000 /* TopProvController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8637E0800000000000000000 /* TopProvController.m */; };
+		17447E800000000000000000 /* SAxMLaunchPadController.h in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE2F800000000000000000 /* SAxMLaunchPadController.h */; };
+		A8511C800000000000000000 /* SAxMLaunchPadController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCACD800000000000000000 /* SAxMLaunchPadController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		517394800000000000000000 /* Xplore_Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Xplore_Lite.app"; path = "Xplore_Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE3D0B000000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		C6C35A000000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		8F49A9000000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		57CFF8000000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		88832B000000000000000000 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "MainStoryboard.storyboard"; path = "MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		51097A000000000000000000 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default.png"; path = "Default.png"; sourceTree = "<group>"; };
+		198FC9000000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		C6593F800000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		8EDF8E800000000000000000 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MainViewController.h"; path = "MainViewController.h"; sourceTree = "<group>"; };
+		3BA905000000000000000000 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MainViewController.m"; path = "MainViewController.m"; sourceTree = "<group>"; };
+		42F540000000000000000000 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FlipsideViewController.h"; path = "FlipsideViewController.h"; sourceTree = "<group>"; };
+		B0F8CA800000000000000000 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FlipsideViewController.m"; path = "FlipsideViewController.m"; sourceTree = "<group>"; };
+		797F19800000000000000000 /* DataSrvcConsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DataSrvcConsViewController.h"; path = "DataSrvcConsViewController.h"; sourceTree = "<group>"; };
+		264890000000000000000000 /* DataSrvcConsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "DataSrvcConsViewController.m"; path = "DataSrvcConsViewController.m"; sourceTree = "<group>"; };
+		EECEDF000000000000000000 /* DistrDevTypController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DistrDevTypController.h"; path = "DistrDevTypController.h"; sourceTree = "<group>"; };
+		9B9855800000000000000000 /* DistrDevTypController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "DistrDevTypController.m"; path = "DistrDevTypController.m"; sourceTree = "<group>"; };
+		641EA4800000000000000000 /* VolDistrController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VolDistrController.h"; path = "VolDistrController.h"; sourceTree = "<group>"; };
+		10E81B000000000000000000 /* VolDistrController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "VolDistrController.m"; path = "VolDistrController.m"; sourceTree = "<group>"; };
+		D96E6A000000000000000000 /* TopProvController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TopProvController.h"; path = "TopProvController.h"; sourceTree = "<group>"; };
+		8637E0800000000000000000 /* TopProvController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "TopProvController.m"; path = "TopProvController.m"; sourceTree = "<group>"; };
+		4EBE2F800000000000000000 /* SAxMLaunchPadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SAxMLaunchPadController.h"; path = "SAxMLaunchPadController.h"; sourceTree = "<group>"; };
+		DFCACD800000000000000000 /* SAxMLaunchPadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SAxMLaunchPadController.m"; path = "SAxMLaunchPadController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4AA1E000000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28032800000000000000000 /* UIKit.framework in Frameworks */,
+				AB0681800000000000000000 /* MapKit.framework in Frameworks */,
+				738CD0800000000000000000 /* Foundation.framework in Frameworks */,
+				3C131F800000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C9FB7C800000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				238E69800000000000000000 /* Xplore_Lite */,
+				70688F800000000000000000 /* Frameworks */,
+				76C4F3000000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		76C4F3000000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				517394800000000000000000 /* Xplore_Lite.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		70688F800000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE3D0B000000000000000000 /* UIKit.framework */,
+				C6C35A000000000000000000 /* MapKit.framework */,
+				8F49A9000000000000000000 /* Foundation.framework */,
+				57CFF8000000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		238E69800000000000000000 /* Xplore_Lite */ = {
+			isa = PBXGroup;
+			children = (
+				198FC9000000000000000000 /* AppDelegate.h */,
+				797F19800000000000000000 /* DataSrvcConsViewController.h */,
+				51097A000000000000000000 /* Default.png */,
+				EECEDF000000000000000000 /* DistrDevTypController.h */,
+				42F540000000000000000000 /* FlipsideViewController.h */,
+				88832B000000000000000000 /* MainStoryboard.storyboard */,
+				8EDF8E800000000000000000 /* MainViewController.h */,
+				4EBE2F800000000000000000 /* SAxMLaunchPadController.h */,
+				D96E6A000000000000000000 /* TopProvController.h */,
+				641EA4800000000000000000 /* VolDistrController.h */,
+				C3B9E0000000000000000000 /* Supporting Files */,
+			);
+			name = "Xplore_Lite";
+			sourceTree = "<group>";
+		};
+		C3B9E0000000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6593F800000000000000000 /* AppDelegate.m */,
+				264890000000000000000000 /* DataSrvcConsViewController.m */,
+				9B9855800000000000000000 /* DistrDevTypController.m */,
+				B0F8CA800000000000000000 /* FlipsideViewController.m */,
+				3BA905000000000000000000 /* MainViewController.m */,
+				DFCACD800000000000000000 /* SAxMLaunchPadController.m */,
+				8637E0800000000000000000 /* TopProvController.m */,
+				10E81B000000000000000000 /* VolDistrController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		337562400000000000000000 /* Xplore_Lite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E275400000000000000000 /* Build configuration list for PBXNativeTarget "Xplore_Lite" */;
+			buildPhases = (
+				6D306D000000000000000000 /* Sources */,
+				A4AA1E000000000000000000 /* Frameworks */,
+				88ED45800000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Xplore_Lite";
+			productName = "Xplore_Lite";
+			productReference = 517394800000000000000000 /* Xplore_Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		546931000000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = { };
+			buildConfigurationList = 86ABEBC00000000000000000 /* Build configuration list for PBXProject "Xplore_Lite" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C9FB7C800000000000000000;
+			productRefGroup = 76C4F3000000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				337562400000000000000000 /* Xplore_Lite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88ED45800000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CC652800000000000000000 /* MainStoryboard.storyboard in Resources */,
+				354CA1800000000000000000 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D306D000000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD2F0800000000000000000 /* AppDelegate.h in Sources */,
+				AA9C67000000000000000000 /* AppDelegate.m in Sources */,
+				7322B6000000000000000000 /* MainViewController.h in Sources */,
+				1FEC2C800000000000000000 /* MainViewController.m in Sources */,
+				E8727B800000000000000000 /* FlipsideViewController.h in Sources */,
+				953BF2000000000000000000 /* FlipsideViewController.m in Sources */,
+				5DC241000000000000000000 /* DataSrvcConsViewController.h in Sources */,
+				A8BB78000000000000000000 /* DataSrvcConsViewController.m in Sources */,
+				D31206800000000000000000 /* DistrDevTypController.h in Sources */,
+				7FDB7D000000000000000000 /* DistrDevTypController.m in Sources */,
+				4861CC000000000000000000 /* VolDistrController.h in Sources */,
+				F52B42800000000000000000 /* VolDistrController.m in Sources */,
+				BDB191800000000000000000 /* TopProvController.h in Sources */,
+				6A7B08000000000000000000 /* TopProvController.m in Sources */,
+				17447E800000000000000000 /* SAxMLaunchPadController.h in Sources */,
+				A8511C800000000000000000 /* SAxMLaunchPadController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19F9E3800000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		35B6BC000000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "Xplore_Lite";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86ABEBC00000000000000000 /* Build configuration list for PBXProject "Xplore_Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F9E3800000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		D9E275400000000000000000 /* Build configuration list for PBXNativeTarget "Xplore_Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35B6BC000000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 546931000000000000000000 /* Project object */;
+}

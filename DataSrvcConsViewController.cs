@@ -33,7 +33,6 @@ namespace Xplore_Lite
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.DSCActivityIndicator.StartAnimating();
 
 			// ************** ORIGINAL CODE WITH STATIC BAR CHART *************************
 			//chart1.Frame = DSCUIView.Frame;
@@ -72,23 +71,17 @@ namespace Xplore_Lite
 			chart_DSC.Header.Visible = false;
 			chart_DSC.Header.Alignment = MonoTouch.CoreText.CTTextAlignment.Center;
 			chart_DSC.Header.Shadow.Visible = true;
-			
-			
+
 			// Formating Legend
 			chart_DSC.Legend.Alignment = LegendAlignments.Bottom;
 			chart_DSC.Legend.Shadow.Visible=false;
 			chart_DSC.Legend.Transparency = 50; 
-			
-
 
 			// Data series coming from xomScore SAxM demo website
 			// WSDL Service used: http://saxm.comscore.com/DataProviderService.svc?wsdl
 			// Proxy created with Silver light: AppDelegate.cs
 
 			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
-
-
-
 			// Context Info Parameter
 			var paramsDto =new Xplore.Framework.Common.DataProvider.DTO.GetDataParamsDTO();
 			paramsDto.ContextInfo = new string[7];
@@ -275,7 +268,7 @@ namespace Xplore_Lite
 							metadataColListId.Add(col.Attribute("id").Value.ToString());
 						}
 						Console.WriteLine("Total Metadata Columns: {0}", metadataColListName.Count);
-
+						i=0;
 						foreach (string column in metadataColListName)
 						{
 							Console.WriteLine(" - metadataColList[{0}]: Name={1} | Id={2}", i, 
@@ -284,9 +277,7 @@ namespace Xplore_Lite
 						}
 
 
-
 						// ********* XML Data ********
-						// Get the Data properties for Series Names and Points
 						System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = 
 							xElementFromStream.Descendants("Data").Descendants("row");;
 						
