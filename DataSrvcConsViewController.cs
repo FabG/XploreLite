@@ -313,9 +313,14 @@ namespace Xplore_Lite
 								Console.WriteLine("Callback Return");
 								Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
 								                  metadataRowListName[i], metadataRowListValue[i]);
+								//Adding one y one series name and values - using randm colors (not specified in the call)
 								pie_DSC.Add(Convert.ToDouble(metadataRowListValue[i]),metadataRowListName[i]);
 								i++;
 							}
+							// Changing Fomat of the pie to %
+							pie_DSC.Marks.Style = Steema.TeeChart.Styles.MarksStyles.Percent;
+
+
 						});
 					}
 				}
