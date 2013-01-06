@@ -8,8 +8,8 @@
     <ProjectGuid>{F950E3FF-E164-4B4B-A2A1-B6AF1C8220BA}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Storyboard</RootNamespace>
-    <AssemblyName>Storyboard</AssemblyName>
+    <RootNamespace>Xplore_Lite</RootNamespace>
+    <AssemblyName>Xplore_Lite</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>True</DebugSymbols>
@@ -83,10 +83,6 @@
     <Compile Include="FlipsideViewController.cs" />
     <Compile Include="FlipsideViewController.designer.cs">
       <DependentUpon>FlipsideViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MonkeyController.cs" />
-    <Compile Include="MonkeyController.designer.cs">
-      <DependentUpon>MonkeyController.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSrvcConsViewController.cs" />
     <Compile Include="DataSrvcConsViewController.designer.cs">

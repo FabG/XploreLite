@@ -22,7 +22,7 @@ namespace Xplore_Lite
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			//Console.WriteLine("MonkeyControl view load");
+			Console.WriteLine("SAxM Control view load");
 			//Assign images to buttons
 			buttonSAxMDSA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_DSA_150x150.png"), UIControlState.Normal);
 			buttonSAxMTPA.SetImage(UIImage.FromFile ("Images/SAxM_Launch_Pad_TPA_150x150.png"), UIControlState.Normal);

@@ -9,7 +9,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>XploreLite</string>
 	<key>CFBundleExecutable</key>
-	<string>Storyboard</string>
+	<string>Xplore_Lite</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Enhanced_medallion57x57.png</string>
