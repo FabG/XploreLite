@@ -17,8 +17,16 @@ namespace Xplore_Lite
 	{
 		private static readonly DataProviderServiceClient dataProviderClient = GetClient();
 
+		// Lists to handle the Series name/data points coming from the webservice
+		List<String> metadataColListName = new List<String>();
+		List<String> metadataColListId = new List<String>();
+		List<String> metadataRowListName = new List<String>();
+		List<String> metadataRowListValue = new List<String>();
+		int i = 0;
+
 		// TChart
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
+
 
 		System.Drawing.RectangleF r1;
 
@@ -50,10 +58,11 @@ namespace Xplore_Lite
 			//bar1.Add(6,"Communication / Messaging",UIColor.Yellow.CGColor);  
 
 			// ************** NEW CODE WITH DYNAMIC PIE CHART (WEBSERVICE) *************************
+
 			chart_DSC.Frame = DSCUIView.Frame;
 			this.View.AddSubview(chart_DSC);
-
 			Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
+
 			chart_DSC.Series.Add(pie_DSC);
 			chart_DSC.Aspect.View3D = true;
 			
@@ -69,11 +78,7 @@ namespace Xplore_Lite
 			chart_DSC.Legend.Shadow.Visible=false;
 			chart_DSC.Legend.Transparency = 50; 
 			
-			// Static series
-			pie_DSC.Add(44,"Browsing",UIColor.Blue.CGColor);  
-			pie_DSC.Add(24,"Streaming",UIColor.Red.CGColor);  
-			pie_DSC.Add(16,"Dwnld/Upld/Game",UIColor.Green.CGColor);  
-			pie_DSC.Add(6,"Comm/Msg",UIColor.Yellow.CGColor);
+
 
 			// Data series coming from xomScore SAxM demo website
 			// WSDL Service used: http://saxm.comscore.com/DataProviderService.svc?wsdl
@@ -81,12 +86,7 @@ namespace Xplore_Lite
 
 			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
 
-			// Lists to handle the Series name/data points coming from the webservice
-			List<String> metadataColListName;
-			List<String> metadataColListId;
-			List<String> metadataRowListName;
-			List<String> metadataRowListValue;
-			int i = 0;
+
 
 			// Context Info Parameter
 			var paramsDto =new Xplore.Framework.Common.DataProvider.DTO.GetDataParamsDTO();
@@ -263,8 +263,6 @@ namespace Xplore_Lite
 						// ********* XML MetaData ********
 						System.Collections.Generic.IEnumerable<XElement> xmlMetaDataSerie = 
 							xElementFromStream.Descendants("MetaData").Descendants("col");;
-						metadataColListName = new List<String>();
-						metadataColListId = new List<String>();
 
 						// Add the name tag content to a list to pass it to the chart
 						foreach(XElement col in xmlMetaDataSerie) 
@@ -290,8 +288,6 @@ namespace Xplore_Lite
 						// Get the Data properties for Series Names and Points
 						System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = 
 							xElementFromStream.Descendants("Data").Descendants("row");;
-						metadataRowListName = new List<String>();
-						metadataRowListValue = new List<String>();
 						
 						// Add the name tag content to a list to pass it to the chart
 						foreach(XElement row in xmlDataSerie) 
@@ -307,21 +303,34 @@ namespace Xplore_Lite
 						{
 							Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
 							                  metadataRowListName[i], metadataRowListValue[i]);
+
 							i++;
 						}
 
-						//Pass Serie Names and values to chart
+						// Update Pie chart from the main UI Thread
+						// To do so, need to use  NSObject.InvokeOnMainThread
+						//  as Access to UI elements should be limited to the same thread 
+						// that is running the main loop
 
-					} 
-
-
-
+						InvokeOnMainThread (delegate {
+							i=0;
+							pie_DSC.Clear();
+							foreach (string row in metadataRowListName)
+							{
+								Console.WriteLine("Callback Return");
+								Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
+								                  metadataRowListName[i], metadataRowListValue[i]);
+								pie_DSC.Add(Convert.ToDouble(metadataRowListValue[i]),metadataRowListName[i]);
+								i++;
+							}
+						});
+					}
 				}
 
+			}; // End call back
 
-			};
- 
 		}
+
 
 		public override void DidRotate(UIInterfaceOrientation fromInterfaceOrientation) 
 		{
