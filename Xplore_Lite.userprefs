@@ -1,16 +1,17 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataSrvcConsViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataDistZipController.cs">
     <Files>
-      <File FileName="DataSrvcConsViewController.cs" Line="359" Column="35" />
-      <File FileName="ParamsDTO.cs" Line="8" Column="30" />
+      <File FileName="DataDistZipController.cs" Line="38" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Xplore_Lite" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="DataSrvcConsViewController.cs" expanded="True" selected="True" />
+            <Node name="DataDistZipController.cs" expanded="True" selected="True" />
+            <Node name="DataSrvcConsViewController.cs" expanded="True" />
+            <Node name="DistrDevTypController.cs" expanded="True" />
             <Node name="MainViewController.cs" expanded="True" />
             <Node name="SAxMLaunchPadController.cs" expanded="True" />
             <Node name="TopProvController.cs" expanded="True" />

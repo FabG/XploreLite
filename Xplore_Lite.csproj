@@ -108,6 +108,10 @@
     <Compile Include="LoadingOverlay.cs" />
     <Compile Include="ActionSheetDatePicker.cs" />
     <Compile Include="ParamsDTO.cs" />
+    <Compile Include="DataDistZipController.cs" />
+    <Compile Include="DataDistZipController.designer.cs">
+      <DependentUpon>DataDistZipController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
