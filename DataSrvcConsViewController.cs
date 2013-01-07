@@ -24,6 +24,9 @@ namespace Xplore_Lite
 		List<String> metadataRowListValue = new List<String>();
 		int i = 0;
 		LoadingOverlay loadingOverlay;
+		ActionSheetDatePicker actionSheetDatePicker;
+		string[] datePickerResult;
+		string filterGlobalDate;
 
 		// TChart
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
@@ -345,6 +348,36 @@ namespace Xplore_Lite
 
 			DSCDateButton.TouchUpInside += (sender, e) => {
 				Console.WriteLine("Date Button clicked");
+
+				actionSheetDatePicker = new ActionSheetDatePicker (this.View);
+				actionSheetDatePicker.Show ();
+				actionSheetDatePicker.Title = "Choose Date:";
+				actionSheetDatePicker.DatePicker.Mode = UIDatePickerMode.Date;
+
+				// Limit dates seclection to what we have on the demo platform
+				//actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Today.AddDays (-7);
+				//actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Today.AddDays (7);			
+				actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Parse("2012-08-06").AddDays(-14);
+				actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Parse("2012-08-06").AddDays (14);			
+
+				actionSheetDatePicker.DatePicker.ValueChanged += (s2, e2) => {
+					 
+					DSCDateLabel.Text = (s2 as UIDatePicker).Date.ToString ();
+					datePickerResult = new string[3];
+
+					// Need to convert single day selection
+					// from 2012-08-20 04:00:00 +0000 
+					// to Days~08/06/2012~08/06/2012
+					// Month
+					datePickerResult[0] = (s2 as UIDatePicker).Date.ToString().Substring(5,2);
+					// Day
+					datePickerResult[1] = (s2 as UIDatePicker).Date.ToString().Substring(8,2);
+					// Year
+					datePickerResult[2] = (s2 as UIDatePicker).Date.ToString().Substring(0,4);
+					Console.WriteLine("Date: {0}/{1}/{2}", datePickerResult[0], datePickerResult[1], datePickerResult[2]); 
+
+					// Regenerate chart with new date
+				};
 			};
 
 			DSCCustButton.TouchUpInside += (sender, e) => {

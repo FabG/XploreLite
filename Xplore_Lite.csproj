@@ -106,6 +106,7 @@
       <DependentUpon>SAxMLaunchPadController.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadingOverlay.cs" />
+    <Compile Include="ActionSheetDatePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

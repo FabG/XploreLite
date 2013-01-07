@@ -248,7 +248,7 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="g9v-8E-LHj">
-                                <rect key="frame" x="9" y="54" width="302" height="352"/>
+                                <rect key="frame" x="9" y="76" width="302" height="330"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -300,6 +300,13 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="a5g-Rc-wrt">
+                                <rect key="frame" x="9" y="47" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -308,6 +315,7 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                         <outlet property="DSCAgeButton" destination="nPO-nL-FdY" id="BaT-lp-elA"/>
                         <outlet property="DSCCustButton" destination="TGw-BR-Lo0" id="B6J-f6-aaf"/>
                         <outlet property="DSCDateButton" destination="djL-LK-RN0" id="LXl-Oh-OqZ"/>
+                        <outlet property="DSCDateLabel" destination="a5g-Rc-wrt" id="XYM-mV-TfW"/>
                         <outlet property="DSCIndicButton" destination="7oy-Nj-vF4" id="oG1-K3-Tdt"/>
                         <outlet property="DSCUIView" destination="g9v-8E-LHj" id="0OC-n8-GAu"/>
                     </connections>
@@ -665,6 +673,7 @@ Subscriber Analytix is based on comScore’s heritage of transforming billions o
                 <relationship kind="outlet" name="DSCAgeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="DSCCustButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="DSCDateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="DSCDateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="DSCIndicButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="DSCUIView" candidateClass="UIView"/>
             </relationships>

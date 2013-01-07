@@ -25,6 +25,9 @@ namespace Xplore_Lite
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton DSCAgeButton { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel DSCDateLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -51,6 +54,11 @@ namespace Xplore_Lite
 			if (DSCAgeButton != null) {
 				DSCAgeButton.Dispose ();
 				DSCAgeButton = null;
+			}
+
+			if (DSCDateLabel != null) {
+				DSCDateLabel.Dispose ();
+				DSCDateLabel = null;
 			}
 		}
 	}
