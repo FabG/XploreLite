@@ -23,6 +23,7 @@ namespace Xplore_Lite
 		List<String> metadataRowListName = new List<String>();
 		List<String> metadataRowListValue = new List<String>();
 		int i = 0;
+		LoadingOverlay loadingOverlay;
 
 		// TChart
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
@@ -33,6 +34,27 @@ namespace Xplore_Lite
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
+			View.Add (loadingOverlay);
+
+			chart_DSC.Frame = DSCUIView.Frame;
+			//this.View.AddSubview(chart_DSC);
+			Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
+			
+			chart_DSC.Series.Add(pie_DSC);
+			chart_DSC.Aspect.View3D = true;
+			
+			// Header
+			chart_DSC.Header.Text = "Data Services Consumption";
+			chart_DSC.Header.Visible = false;
+			chart_DSC.Header.Alignment = MonoTouch.CoreText.CTTextAlignment.Center;
+			chart_DSC.Header.Shadow.Visible = true;
+			
+			// Formating Legend
+			chart_DSC.Legend.Alignment = LegendAlignments.Bottom;
+			chart_DSC.Legend.Shadow.Visible=false;
+			chart_DSC.Legend.Transparency = 50; 
 
 			// ************** ORIGINAL CODE WITH STATIC BAR CHART *************************
 			//chart1.Frame = DSCUIView.Frame;
@@ -59,29 +81,14 @@ namespace Xplore_Lite
 
 			// ************** NEW CODE WITH DYNAMIC PIE CHART (WEBSERVICE) *************************
 
-			chart_DSC.Frame = DSCUIView.Frame;
-			this.View.AddSubview(chart_DSC);
-			Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
 
-			chart_DSC.Series.Add(pie_DSC);
-			chart_DSC.Aspect.View3D = true;
-			
-			// Header
-			chart_DSC.Header.Text = "Data Services Consumption";
-			chart_DSC.Header.Visible = false;
-			chart_DSC.Header.Alignment = MonoTouch.CoreText.CTTextAlignment.Center;
-			chart_DSC.Header.Shadow.Visible = true;
-
-			// Formating Legend
-			chart_DSC.Legend.Alignment = LegendAlignments.Bottom;
-			chart_DSC.Legend.Shadow.Visible=false;
-			chart_DSC.Legend.Transparency = 50; 
 
 			// Data series coming from xomScore SAxM demo website
 			// WSDL Service used: http://saxm.comscore.com/DataProviderService.svc?wsdl
 			// Proxy created with Silver light: AppDelegate.cs
 
 			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
+
 			// Context Info Parameter
 			var paramsDto =new Xplore.Framework.Common.DataProvider.DTO.GetDataParamsDTO();
 			paramsDto.ContextInfo = new string[7];
@@ -193,6 +200,7 @@ namespace Xplore_Lite
 			dataProviderClient.GetDataCompleted += (object sender2, GetDataCompletedEventArgs ev) => {
 				if (ev.Result.Code == "GEN-0000")
 				{
+
 					Console.WriteLine("Response received");
 
 					string xmlresultObject = ev.Result.ResultObject.ToString();
@@ -304,8 +312,11 @@ namespace Xplore_Lite
 						//  as Access to UI elements should be limited to the same thread 
 						// that is running the main loop
 
+
 						InvokeOnMainThread (delegate {
-							this.DSCActivityIndicator.StopAnimating();
+							loadingOverlay.Hide ();
+							View.AddSubview(chart_DSC);
+
 							i=0;
 							pie_DSC.Clear();
 							foreach (string row in metadataRowListName)
@@ -327,6 +338,22 @@ namespace Xplore_Lite
 
 			}; // End call back
 
+			// Filters
+			DSCIndicButton.TouchUpInside += (sender, e) => {
+				Console.WriteLine("Indicator Button clicked");
+			};
+
+			DSCDateButton.TouchUpInside += (sender, e) => {
+				Console.WriteLine("Date Button clicked");
+			};
+
+			DSCCustButton.TouchUpInside += (sender, e) => {
+				Console.WriteLine("Customer Type Button clicked");
+			};
+
+			DSCAgeButton.TouchUpInside += (sender, e) => {
+				Console.WriteLine("Age Button clicked");
+			};
 		}
 
 

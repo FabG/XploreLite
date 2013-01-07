@@ -15,7 +15,16 @@ namespace Xplore_Lite
 		MonoTouch.UIKit.UIView DSCUIView { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UIActivityIndicatorView DSCActivityIndicator { get; set; }
+		MonoTouch.UIKit.UIButton DSCIndicButton { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton DSCDateButton { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton DSCCustButton { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIButton DSCAgeButton { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -24,9 +33,24 @@ namespace Xplore_Lite
 				DSCUIView = null;
 			}
 
-			if (DSCActivityIndicator != null) {
-				DSCActivityIndicator.Dispose ();
-				DSCActivityIndicator = null;
+			if (DSCIndicButton != null) {
+				DSCIndicButton.Dispose ();
+				DSCIndicButton = null;
+			}
+
+			if (DSCDateButton != null) {
+				DSCDateButton.Dispose ();
+				DSCDateButton = null;
+			}
+
+			if (DSCCustButton != null) {
+				DSCCustButton.Dispose ();
+				DSCCustButton = null;
+			}
+
+			if (DSCAgeButton != null) {
+				DSCAgeButton.Dispose ();
+				DSCAgeButton = null;
 			}
 		}
 	}

@@ -105,6 +105,7 @@
     <Compile Include="SAxMLaunchPadController.designer.cs">
       <DependentUpon>SAxMLaunchPadController.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
