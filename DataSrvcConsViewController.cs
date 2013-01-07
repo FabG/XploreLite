@@ -93,7 +93,7 @@ namespace Xplore_Lite
 			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
 
 			// Context Info Parameter
-			var paramsDto =new Xplore.Framework.Common.DataProvider.DTO.GetDataParamsDTO();
+			var paramsDto = new Xplore.Framework.Common.DataProvider.DTO.GetDataParamsDTO();
 			paramsDto.ContextInfo = new string[7];
 			paramsDto.ContextInfo[0] = "dashboardID=100001";
 			paramsDto.ContextInfo[1] = "podID=0" ;

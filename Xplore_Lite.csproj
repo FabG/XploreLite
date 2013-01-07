@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="LoadingOverlay.cs" />
     <Compile Include="ActionSheetDatePicker.cs" />
+    <Compile Include="ParamsDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
