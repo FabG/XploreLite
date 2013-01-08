@@ -25,9 +25,12 @@ namespace Xplore_Lite
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
 		Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
 		System.Drawing.RectangleF r1;
+		string dateButtonTitle = "Date: 08/10/2012";
 
 		// Request variables
 		string DateFilter = "Days~08/10/2012~08/10/2012"; // Default August 6th
+
+
 
 		public override void ViewDidLoad ()
 		{
@@ -35,11 +38,13 @@ namespace Xplore_Lite
 
 			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
 			View.Add (loadingOverlay);
-			
-			// TChart
-			chart_DSC.Frame = DSCUIView.Frame;
 
-			
+			// Update Button default titles
+			DSCDateButton.SetTitle(dateButtonTitle, UIControlState.Normal);
+
+
+			// Chart settings 
+			chart_DSC.Frame = DSCUIView.Frame;
 			chart_DSC.Series.Add(pie_DSC);
 			chart_DSC.Aspect.View3D = true;
 
@@ -53,6 +58,10 @@ namespace Xplore_Lite
 			chart_DSC.Legend.Alignment = LegendAlignments.Bottom;
 			chart_DSC.Legend.Shadow.Visible=false;
 			chart_DSC.Legend.Transparency = 50; 
+			//chart_DSC.Legend.TextStyle = Steema.TeeChart.LegendTextStyles.Percent; // show percent values (37%, %,..)
+			//chart_DSC.Legend.TextStyle = Steema.TeeChart.LegendTextStyles.Value; // show absolute values (0.37, 0.02,...)
+			//chart_DSC.Legend.TextStyle = Steema.TeeChart.LegendTextStyles.XValue; // show series numbers (0,1,2...)
+			chart_DSC.Legend.TextStyle = Steema.TeeChart.LegendTextStyles.Plain; // show series names (Mail, Browsing,...)
 
 			// ************** ORIGINAL CODE WITH STATIC BAR CHART *************************
 			//chart1.Frame = DSCUIView.Frame;
@@ -125,20 +134,26 @@ namespace Xplore_Lite
 					datePickerResult[2] = (s2 as UIDatePicker).Date.ToString().Substring(0,4);
 					Console.WriteLine("Date: {0}/{1}/{2}", datePickerResult[0], datePickerResult[1], datePickerResult[2]); 
 
-					// Regenerate chart with new date
-					actionSheetDatePicker.DoneButtonClicked += (s3, e3) => {
-						DSCDateLabel.Text = actionSheetDatePicker.DatePicker.Date.ToString();
-						View.Add (loadingOverlay);
+				};
 
-						// Send request with new date (format = "Days~08/10/2012~08/10/2012")
-						DateFilter = "Days~" + datePickerResult[0] + "/" 
-							+ datePickerResult[1] + "/" + datePickerResult[2] + "~"
+				// Regenerate chart with new date
+				actionSheetDatePicker.DoneButtonClicked += (s3, e3) => {
+
+					// Update Date Button title
+					dateButtonTitle="Date: " + datePickerResult[0] + "/"  + datePickerResult[1] 
+									+ "/" + datePickerResult[2];
+					DSCDateButton.SetTitle(dateButtonTitle, UIControlState.Normal);
+
+					// Loading indicator
+					View.Add (loadingOverlay);
+					
+					// Send request with new date (format = "Days~08/10/2012~08/10/2012")
+					DateFilter = "Days~" + datePickerResult[0] + "/" 
+						+ datePickerResult[1] + "/" + datePickerResult[2] + "~"
 							+ datePickerResult[0] + "/" + datePickerResult[1] + "/" + datePickerResult[2];
-						Console.WriteLine("DateFilter = {0}", DateFilter);
-
-						dataRequest ("DSC", DateFilter);
-					};
-
+					Console.WriteLine("DateFilter = {0}", DateFilter);
+					
+					dataRequest ("DSC", DateFilter);
 				};
 			};
 
