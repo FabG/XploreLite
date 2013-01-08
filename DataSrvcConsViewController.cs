@@ -26,6 +26,9 @@ namespace Xplore_Lite
 		Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
 		System.Drawing.RectangleF r1;
 
+		// Request variables
+		string DateFilter = "Days~08/10/2012~08/10/2012"; // Default August 6th
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -76,8 +79,8 @@ namespace Xplore_Lite
 
 			// ************** NEW CODE WITH DYNAMIC PIE CHART (WEBSERVICE) *************************
 
-			// Send the request
-			dataRequest ("DSC", "Days~08/06/2012~08/06/2012");
+			// Send the request - default date is: August 6th 2012
+			dataRequest ("DSC", DateFilter);
 
 			// Initialization
 			// Pass callback when asynchronous call is done
@@ -86,9 +89,6 @@ namespace Xplore_Lite
 				{
 					// Parse Results
 					dataResponse (ev);
-
-
-
 				}
 			};
 
@@ -110,18 +110,13 @@ namespace Xplore_Lite
 				actionSheetDatePicker.Title = "Choose Date:";
 				actionSheetDatePicker.DatePicker.Mode = UIDatePickerMode.Date;
 
-				// Limit dates seclection to what we have on the demo platform
-				//actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Today.AddDays (-7);
-				//actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Today.AddDays (7);			
+				// Limit dates seclection to what we have on the demo platform (August 2012)
+				actionSheetDatePicker.DatePicker.Date = DateTime.Parse("2012-08-06");
 				actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Parse("2012-08-06").AddDays(-5);
 				actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Parse("2012-08-06").AddDays (24);			
 
 				actionSheetDatePicker.DatePicker.ValueChanged += (s2, e2) => {
 					datePickerResult = new string[3];
-
-					// Need to convert single day selection
-					// from 2012-08-20 04:00:00 +0000 
-					// to Days~08/06/2012~08/06/2012
 					// Month
 					datePickerResult[0] = (s2 as UIDatePicker).Date.ToString().Substring(5,2);
 					// Day
@@ -134,9 +129,14 @@ namespace Xplore_Lite
 					actionSheetDatePicker.DoneButtonClicked += (s3, e3) => {
 						DSCDateLabel.Text = actionSheetDatePicker.DatePicker.Date.ToString();
 						View.Add (loadingOverlay);
-						// Fct to Create the PAramsDTO object and call the WS
-						dataRequest ("DSC", "Days~08/10/2012~08/10/2012");
 
+						// Send request with new date (format = "Days~08/10/2012~08/10/2012")
+						DateFilter = "Days~" + datePickerResult[0] + "/" 
+							+ datePickerResult[1] + "/" + datePickerResult[2] + "~"
+							+ datePickerResult[0] + "/" + datePickerResult[1] + "/" + datePickerResult[2];
+						Console.WriteLine("DateFilter = {0}", DateFilter);
+
+						dataRequest ("DSC", DateFilter);
 					};
 
 				};
@@ -266,9 +266,6 @@ namespace Xplore_Lite
 				// Add the name tag content to a list to pass it to the chart
 				foreach(XElement col in xmlMetaDataSerie) 
 				{
-					//Console.WriteLine("Metadata col :{0}", col.ToString());
-					//Console.WriteLine("  - Metadata col id :{0}", col.Attribute("id").Value.ToString());
-					//Console.WriteLine("  - Metadata col name :{0}", col.Attribute("name").Value.ToString());
 					metadataColListName.Add(col.Attribute("name").Value.ToString());
 					metadataColListId.Add(col.Attribute("id").Value.ToString());
 				}
@@ -303,10 +300,8 @@ namespace Xplore_Lite
 					i++;
 				}
 
-				// Update Pie chart from the main UI Thread
-				// To do so, need to use  NSObject.InvokeOnMainThread
-				//  as Access to UI elements should be limited to the same thread 
-				// that is running the main loop
+				// Update Pie chart from the main UI Thread. To do so, need to use  NSObject.InvokeOnMainThread
+				//  as Access to UI elements should be limited to the same thread that is running the main loop
 				InvokeOnMainThread (delegate {
 					loadingOverlay.Hide ();
 					View.AddSubview(chart_DSC);
@@ -315,9 +310,6 @@ namespace Xplore_Lite
 					pie_DSC.Clear();
 					foreach (string row in metadataRowListName)
 					{
-						Console.WriteLine("Callback Return");
-						Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
-						                  metadataRowListName[i], metadataRowListValue[i]);
 						//Adding one by one series name and values - using random colors (not specified in the call)
 						pie_DSC.Add(Convert.ToDouble(metadataRowListValue[i]),metadataRowListName[i]);
 						i++;
