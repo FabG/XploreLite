@@ -37,6 +37,9 @@ namespace Xplore_Lite
 			get { return titleLabel.Text; }
 			set { titleLabel.Text = value; }
 		}
+
+		public EventHandler DoneButtonClicked = null;
+
 		
 #endregion
 		
@@ -57,7 +60,18 @@ namespace Xplore_Lite
 			
 			// configure the done button
 			doneButton.SetTitle ("done", UIControlState.Normal);
-			doneButton.TouchUpInside += (s, e) => { actionSheet.DismissWithClickedButtonIndex (0, true); };
+			doneButton.TouchUpInside += (s, e) => { 
+				actionSheet.DismissWithClickedButtonIndex (0, true); 
+				// Add DoneButtonClicked Event
+				//Console.WriteLine("Done clicked");
+				if (DoneButtonClicked != null)
+				{
+					DoneButtonClicked(s,e);
+				}
+			
+			};
+
+			// expose done clicked event
 			
 			// create + configure the action sheet
 			actionSheet = new UIActionSheet () { Style = UIActionSheetStyle.BlackTranslucent };
@@ -67,7 +81,11 @@ namespace Xplore_Lite
 			actionSheet.AddSubview (datePicker);
 			actionSheet.AddSubview (titleLabel);
 			actionSheet.AddSubview (doneButton);
+
+
 		}
+
+
 		
 #endregion
 		

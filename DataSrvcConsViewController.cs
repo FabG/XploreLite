@@ -18,20 +18,12 @@ namespace Xplore_Lite
 		private static readonly DataProviderServiceClient dataProviderClient = GetClient();
 
 		// Lists to handle the Series name/data points coming from the webservice
-		List<String> metadataColListName = new List<String>();
-		List<String> metadataColListId = new List<String>();
-		List<String> metadataRowListName = new List<String>();
-		List<String> metadataRowListValue = new List<String>();
 		int i = 0;
 		LoadingOverlay loadingOverlay;
 		ActionSheetDatePicker actionSheetDatePicker;
 		string[] datePickerResult;
-		string filterGlobalDate;
-
-		// TChart
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
-
-
+		Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
 		System.Drawing.RectangleF r1;
 
 		public override void ViewDidLoad ()
@@ -40,14 +32,14 @@ namespace Xplore_Lite
 
 			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
 			View.Add (loadingOverlay);
-
+			
+			// TChart
 			chart_DSC.Frame = DSCUIView.Frame;
-			//this.View.AddSubview(chart_DSC);
-			Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
+
 			
 			chart_DSC.Series.Add(pie_DSC);
 			chart_DSC.Aspect.View3D = true;
-			
+
 			// Header
 			chart_DSC.Header.Text = "Data Services Consumption";
 			chart_DSC.Header.Visible = false;
@@ -84,161 +76,26 @@ namespace Xplore_Lite
 
 			// ************** NEW CODE WITH DYNAMIC PIE CHART (WEBSERVICE) *************************
 
+			// Send the request
+			dataRequest ("DSC", "Days~08/06/2012~08/06/2012");
 
+			// Initialization
+			// Pass callback when asynchronous call is done
+			dataProviderClient.GetDataCompleted += (object sender2, GetDataCompletedEventArgs ev) => {
+				if (ev.Result.Code == "GEN-0000")
+				{
+					// Parse Results
+					dataResponse (ev);
+
+
+
+				}
+			};
 
 			// Data series coming from xomScore SAxM demo website
 			// WSDL Service used: http://saxm.comscore.com/DataProviderService.svc?wsdl
 			// Proxy created with Silver light: AppDelegate.cs
 
-			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
-			var paramsDto = ParamsDTO.CreateParamsDTO("DSC", "Days~08/06/2012~08/06/2012");
-
-			// Fill Request
-			dataProviderClient.GetDataAsync("DASH_SQL_EXEC", paramsDto);
-
-			// Pass callback when asynchronous call is done
-			// Response has 3 fields as part of the GetDataResult tag: Code, Description and ResultObject
-			// for this POC, Code = "GEN-0000", Description is null
-			// and ResultObject is filled with an XML string
-			dataProviderClient.GetDataCompleted += (object sender2, GetDataCompletedEventArgs ev) => {
-				if (ev.Result.Code == "GEN-0000")
-				{
-
-					Console.WriteLine("Response received");
-
-					string xmlresultObject = ev.Result.ResultObject.ToString();
-					// Console.WriteLine("xmlresultObject = {0}", xmlresultObject);
-					//xmlresultObject=
-					/*<GetData><MetaData>
-						<Columns>
-							<col id="No" name="No" type="number" />
-							<col id="Network_id" name="Network_id" type="number" />
-							<col id="service_x0020_group" name="service group" type="string" />
-							<col id="Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_" name="Avg Data Volume per Session (MB)" type="number" />
-							<col id="ROWID" name="ROWID" type="string" />
-						</Columns>
-						<Pagination actualPage="1" totalRowCount="6" totalPages="1" pageSize="25" />
-						<AdditionalProperties><AdditionalProperty name="ROWNUM_COLID" value="No" />
-						</AdditionalProperties>
-						</MetaData>
-						<Data><row No="1" Network_id="6" service_x0020_group="Communication / Messaging" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="-979132663" /><row No="2" Network_id="5" service_x0020_group="Download / Upload / Gaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.47" ROWID="-876054502" /><row No="3" Network_id="4" service_x0020_group="Browsing" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.13" ROWID="-788535925" /><row No="4" Network_id="3" service_x0020_group="Streaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="1.98" ROWID="1697245990" /><row No="5" Network_id="2" service_x0020_group="Mail" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.08" ROWID="-867832989" /><row No="6" Network_id="1" service_x0020_group="Others" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="1497011326" />
-						</Data>
-					  </GetData>
-							*/
-
-					// FirstNode is <MetaData>
-					// Console.WriteLine("xmlFromMemStream.FirstNode:{0}",xElementFromStream.FirstNode);
-					/* xElementFromStream.FirstNode = 
-					  <MetaData>
-						  <Columns>
-						    <col id="No" name="No" type="number" />
-						    <col id="Network_id" name="Network_id" type="number" />
-						    <col id="service_x0020_group" name="service group" type="string" />
-						    <col id="Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_" name="Avg Data Volume per Session (MB)" type="number" />
-						    <col id="ROWID" name="ROWID" type="string" />
-						  </Columns>
-						  <Pagination actualPage="1" totalRowCount="6" totalPages="1" pageSize="25" />
-						  <AdditionalProperties>
-						    <AdditionalProperty name="ROWNUM_COLID" value="No" />
-						  </AdditionalProperties>
-					 </MetaData>
-					 */
-					
-					// LastNode is <Data>
-					// Console.WriteLine("xmlFromMemStream.LastNode:{0}",xElementFromStream.LastNode);
-					/* xml.LastNode =
-					 	<Data>
-							<row No="1" Network_id="6" service_x0020_group="Communication / Messaging" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="-979132663" />
-							<row No="2" Network_id="5" service_x0020_group="Download / Upload / Gaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.47" ROWID="-876054502" />
-							<row No="3" Network_id="4" service_x0020_group="Browsing" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.13" ROWID="-788535925" />
-							<row No="4" Network_id="3" service_x0020_group="Streaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="1.98" ROWID="1697245990" />
-							<row No="5" Network_id="2" service_x0020_group="Mail" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.08" ROWID="-867832989" />
-							<row No="6" Network_id="1" service_x0020_group="Others" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="1497011326" />
-					 	<Data>
-					*/
-
-					var memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes (ev.Result.ResultObject.ToString()));
-
-					// Read the XML from memstream with XElement from XLinq
-					XElement xElementFromStream = XElement.Load(memStream);
-
-					// Assign Metadata and Data children to 2 lists that will feed the Chart
-					if (xElementFromStream != null) 
-					{ 
-						// ********* XML MetaData ********
-						System.Collections.Generic.IEnumerable<XElement> xmlMetaDataSerie = 
-							xElementFromStream.Descendants("MetaData").Descendants("col");;
-
-						// Add the name tag content to a list to pass it to the chart
-						foreach(XElement col in xmlMetaDataSerie) 
-						{
-							//Console.WriteLine("Metadata col :{0}", col.ToString());
-							//Console.WriteLine("  - Metadata col id :{0}", col.Attribute("id").Value.ToString());
-							//Console.WriteLine("  - Metadata col name :{0}", col.Attribute("name").Value.ToString());
-							metadataColListName.Add(col.Attribute("name").Value.ToString());
-							metadataColListId.Add(col.Attribute("id").Value.ToString());
-						}
-						Console.WriteLine("Total Metadata Columns: {0}", metadataColListName.Count);
-						i=0;
-						foreach (string column in metadataColListName)
-						{
-							Console.WriteLine(" - metadataColList[{0}]: Name={1} | Id={2}", i, 
-							                  metadataColListName[i], metadataColListId[i]);
-							i++;
-						}
-
-
-						// ********* XML Data ********
-						System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = 
-							xElementFromStream.Descendants("Data").Descendants("row");;
-						
-						// Add the name tag content to a list to pass it to the chart
-						foreach(XElement row in xmlDataSerie) 
-						{
-							//Console.WriteLine("Data row :{0}", row.ToString());
-							metadataRowListName.Add(row.Attribute("service_x0020_group").Value.ToString());
-							metadataRowListValue.Add(row.Attribute("Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_").Value.ToString());
-						}
-						
-						Console.WriteLine("Total Data Rows: {0}", metadataRowListName.Count);
-						i=0;
-						foreach (string row in metadataRowListName)
-						{
-							Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
-							                  metadataRowListName[i], metadataRowListValue[i]);
-
-							i++;
-						}
-
-						// Update Pie chart from the main UI Thread
-						// To do so, need to use  NSObject.InvokeOnMainThread
-						//  as Access to UI elements should be limited to the same thread 
-						// that is running the main loop
-						InvokeOnMainThread (delegate {
-							loadingOverlay.Hide ();
-							View.AddSubview(chart_DSC);
-
-							i=0;
-							pie_DSC.Clear();
-							foreach (string row in metadataRowListName)
-							{
-								Console.WriteLine("Callback Return");
-								Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
-								                  metadataRowListName[i], metadataRowListValue[i]);
-								//Adding one by one series name and values - using random colors (not specified in the call)
-								pie_DSC.Add(Convert.ToDouble(metadataRowListValue[i]),metadataRowListName[i]);
-								i++;
-							}
-							// Changing Fomat of the pie to %
-							pie_DSC.Marks.Style = Steema.TeeChart.Styles.MarksStyles.Percent;
-							//pie_DSC.Labels.TrimToSize();
-
-
-						});
-					}
-				}
-
-			}; // End call back
 
 			// Filters
 			DSCIndicButton.TouchUpInside += (sender, e) => {
@@ -256,12 +113,10 @@ namespace Xplore_Lite
 				// Limit dates seclection to what we have on the demo platform
 				//actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Today.AddDays (-7);
 				//actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Today.AddDays (7);			
-				actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Parse("2012-08-06").AddDays(-14);
-				actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Parse("2012-08-06").AddDays (14);			
+				actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Parse("2012-08-06").AddDays(-5);
+				actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Parse("2012-08-06").AddDays (24);			
 
 				actionSheetDatePicker.DatePicker.ValueChanged += (s2, e2) => {
-					 
-					DSCDateLabel.Text = (s2 as UIDatePicker).Date.ToString ();
 					datePickerResult = new string[3];
 
 					// Need to convert single day selection
@@ -276,6 +131,14 @@ namespace Xplore_Lite
 					Console.WriteLine("Date: {0}/{1}/{2}", datePickerResult[0], datePickerResult[1], datePickerResult[2]); 
 
 					// Regenerate chart with new date
+					actionSheetDatePicker.DoneButtonClicked += (s3, e3) => {
+						DSCDateLabel.Text = actionSheetDatePicker.DatePicker.Date.ToString();
+						View.Add (loadingOverlay);
+						// Fct to Create the PAramsDTO object and call the WS
+						dataRequest ("DSC", "Days~08/10/2012~08/10/2012");
+
+					};
+
 				};
 			};
 
@@ -315,5 +178,158 @@ namespace Xplore_Lite
 			var client = new DataProviderServiceClient(binding, endpointAddress);
 			return client;
 		}
+
+
+		// Helper Method to create the ParamsDO object and send the request
+		private void dataRequest (string dto_type, string filterDate)
+		{
+			// Pod accessed: http://saxm.comscore.com > Data Services Analysis Dashboard > Data Services Consumption
+			var paramsDto = ParamsDTO.CreateParamsDTO(dto_type, filterDate);
+			
+			// Fill Request
+			dataProviderClient.GetDataAsync("DASH_SQL_EXEC", paramsDto);
+		}
+
+
+		// Helper Method to parse the XML response from the callback
+		private void dataResponse (GetDataCompletedEventArgs Response)
+		{
+			List<String> metadataColListName = new List<String>();
+			List<String> metadataColListId = new List<String>();
+			List<String> metadataRowListName = new List<String>();
+			List<String> metadataRowListValue = new List<String>();
+
+			Console.WriteLine("Response received");
+			string xmlresultObject = Response.Result.ResultObject.ToString();
+			/*// Console.WriteLine("xmlresultObject = {0}", xmlresultObject);
+			//xmlresultObject=
+			<GetData><MetaData>
+						<Columns>
+							<col id="No" name="No" type="number" />
+							<col id="Network_id" name="Network_id" type="number" />
+							<col id="service_x0020_group" name="service group" type="string" />
+							<col id="Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_" name="Avg Data Volume per Session (MB)" type="number" />
+							<col id="ROWID" name="ROWID" type="string" />
+						</Columns>
+						<Pagination actualPage="1" totalRowCount="6" totalPages="1" pageSize="25" />
+						<AdditionalProperties><AdditionalProperty name="ROWNUM_COLID" value="No" />
+						</AdditionalProperties>
+						</MetaData>
+						<Data><row No="1" Network_id="6" service_x0020_group="Communication / Messaging" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="-979132663" /><row No="2" Network_id="5" service_x0020_group="Download / Upload / Gaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.47" ROWID="-876054502" /><row No="3" Network_id="4" service_x0020_group="Browsing" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.13" ROWID="-788535925" /><row No="4" Network_id="3" service_x0020_group="Streaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="1.98" ROWID="1697245990" /><row No="5" Network_id="2" service_x0020_group="Mail" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.08" ROWID="-867832989" /><row No="6" Network_id="1" service_x0020_group="Others" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="1497011326" />
+						</Data>
+					  </GetData>
+							*/
+			
+			/*// FirstNode is <MetaData>
+			// Console.WriteLine("xmlFromMemStream.FirstNode:{0}",xElementFromStream.FirstNode);
+			 xElementFromStream.FirstNode = 
+					  <MetaData>
+						  <Columns>
+						    <col id="No" name="No" type="number" />
+						    <col id="Network_id" name="Network_id" type="number" />
+						    <col id="service_x0020_group" name="service group" type="string" />
+						    <col id="Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_" name="Avg Data Volume per Session (MB)" type="number" />
+						    <col id="ROWID" name="ROWID" type="string" />
+						  </Columns>
+						  <Pagination actualPage="1" totalRowCount="6" totalPages="1" pageSize="25" />
+						  <AdditionalProperties>
+						    <AdditionalProperty name="ROWNUM_COLID" value="No" />
+						  </AdditionalProperties>
+					 </MetaData>
+					 */
+			
+			/*// LastNode is <Data>
+			// Console.WriteLine("xmlFromMemStream.LastNode:{0}",xElementFromStream.LastNode);
+			 xml.LastNode =
+					 	<Data>
+							<row No="1" Network_id="6" service_x0020_group="Communication / Messaging" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="-979132663" />
+							<row No="2" Network_id="5" service_x0020_group="Download / Upload / Gaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.47" ROWID="-876054502" />
+							<row No="3" Network_id="4" service_x0020_group="Browsing" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.13" ROWID="-788535925" />
+							<row No="4" Network_id="3" service_x0020_group="Streaming" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="1.98" ROWID="1697245990" />
+							<row No="5" Network_id="2" service_x0020_group="Mail" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.08" ROWID="-867832989" />
+							<row No="6" Network_id="1" service_x0020_group="Others" Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_="0.01" ROWID="1497011326" />
+					 	<Data>
+					*/
+			
+			var memStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes (Response.Result.ResultObject.ToString()));
+			
+			// Read the XML from memstream with XElement from XLinq
+			XElement xElementFromStream = XElement.Load(memStream);
+			
+			// Assign Metadata and Data children to 2 lists that will feed the Chart
+			if (xElementFromStream != null) 
+			{ 
+				// ********* XML MetaData ********
+				System.Collections.Generic.IEnumerable<XElement> xmlMetaDataSerie = 
+					xElementFromStream.Descendants("MetaData").Descendants("col");;
+				
+				// Add the name tag content to a list to pass it to the chart
+				foreach(XElement col in xmlMetaDataSerie) 
+				{
+					//Console.WriteLine("Metadata col :{0}", col.ToString());
+					//Console.WriteLine("  - Metadata col id :{0}", col.Attribute("id").Value.ToString());
+					//Console.WriteLine("  - Metadata col name :{0}", col.Attribute("name").Value.ToString());
+					metadataColListName.Add(col.Attribute("name").Value.ToString());
+					metadataColListId.Add(col.Attribute("id").Value.ToString());
+				}
+				Console.WriteLine("Total Metadata Columns: {0}", metadataColListName.Count);
+				i=0;
+				foreach (string column in metadataColListName)
+				{
+					Console.WriteLine(" - metadataColList[{0}]: Name={1} | Id={2}", i, 
+					                  metadataColListName[i], metadataColListId[i]);
+					i++;
+				}
+				
+				
+				// ********* XML Data ********
+				System.Collections.Generic.IEnumerable<XElement> xmlDataSerie = 
+					xElementFromStream.Descendants("Data").Descendants("row");;
+				
+				// Add the name tag content to a list to pass it to the chart
+				foreach(XElement row in xmlDataSerie) 
+				{
+					//Console.WriteLine("Data row :{0}", row.ToString());
+					metadataRowListName.Add(row.Attribute("service_x0020_group").Value.ToString());
+					metadataRowListValue.Add(row.Attribute("Avg_x0020_Data_x0020_Volume_x0020_per_x0020_Session_x0020__x0028_MB_x0029_").Value.ToString());
+				}
+				
+				Console.WriteLine("Total Data Rows: {0}", metadataRowListName.Count);
+				i=0;
+				foreach (string row in metadataRowListName)
+				{
+					Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
+					                  metadataRowListName[i], metadataRowListValue[i]);
+					i++;
+				}
+
+				// Update Pie chart from the main UI Thread
+				// To do so, need to use  NSObject.InvokeOnMainThread
+				//  as Access to UI elements should be limited to the same thread 
+				// that is running the main loop
+				InvokeOnMainThread (delegate {
+					loadingOverlay.Hide ();
+					View.AddSubview(chart_DSC);
+					
+					i=0;
+					pie_DSC.Clear();
+					foreach (string row in metadataRowListName)
+					{
+						Console.WriteLine("Callback Return");
+						Console.WriteLine(" - metadataRowList[{0}]: Name={1} | Value={2}", i, 
+						                  metadataRowListName[i], metadataRowListValue[i]);
+						//Adding one by one series name and values - using random colors (not specified in the call)
+						pie_DSC.Add(Convert.ToDouble(metadataRowListValue[i]),metadataRowListName[i]);
+						i++;
+					}
+					// Changing Fomat of the pie to %
+					pie_DSC.Marks.Style = Steema.TeeChart.Styles.MarksStyles.Percent;
+					//pie_DSC.Labels.TrimToSize();
+					
+					
+				});
+			}
+		} // End dataResponse
+
 	}
 }
