@@ -100,18 +100,18 @@
     <Compile Include="TopProvController.designer.cs">
       <DependentUpon>TopProvController.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataProviderService.cs" />
     <Compile Include="SAxMLaunchPadController.cs" />
     <Compile Include="SAxMLaunchPadController.designer.cs">
       <DependentUpon>SAxMLaunchPadController.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadingOverlay.cs" />
     <Compile Include="ActionSheetDatePicker.cs" />
-    <Compile Include="ParamsDTO.cs" />
     <Compile Include="DataDistZipController.cs" />
     <Compile Include="DataDistZipController.designer.cs">
       <DependentUpon>DataDistZipController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataProviderService.cs" />
+    <Compile Include="Model\ParamsDTO.cs" />
+    <Compile Include="ViewUtils\LoadingOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -119,6 +119,8 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Model\" />
+    <Folder Include="ViewUtils\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\analytics-flexible_57x57.png" />

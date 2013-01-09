@@ -21,7 +21,6 @@ namespace Xplore_Lite
 		int i = 0;
 		LoadingOverlay loadingOverlay;
 		ActionSheetDatePicker actionSheetDatePicker;
-		string[] datePickerResult;
 		public TChart chart_DSC = new Steema.TeeChart.TChart();
 		Steema.TeeChart.Styles.Pie pie_DSC = new Steema.TeeChart.Styles.Pie(); 
 		System.Drawing.RectangleF r1;
@@ -29,8 +28,7 @@ namespace Xplore_Lite
 
 		// Request variables
 		string DateFilter = "Days~08/10/2012~08/10/2012"; // Default August 6th
-
-
+		string [] datePickerResult = new string [] {"08","06","2012"};
 
 		public override void ViewDidLoad ()
 		{
@@ -124,8 +122,10 @@ namespace Xplore_Lite
 				actionSheetDatePicker.DatePicker.MinimumDate = DateTime.Parse("2012-08-06").AddDays(-5);
 				actionSheetDatePicker.DatePicker.MaximumDate = DateTime.Parse("2012-08-06").AddDays (24);			
 
+
+				// update datePicker if any other value was changed
 				actionSheetDatePicker.DatePicker.ValueChanged += (s2, e2) => {
-					datePickerResult = new string[3];
+
 					// Month
 					datePickerResult[0] = (s2 as UIDatePicker).Date.ToString().Substring(5,2);
 					// Day

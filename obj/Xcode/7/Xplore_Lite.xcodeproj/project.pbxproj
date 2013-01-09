@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED0A90000000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464A5A000000000000000000 /* UIKit.framework */; };
+		BB9A1F800000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D756F8000000000000000000 /* MapKit.framework */; };
+		4CA6BD800000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686396000000000000000000 /* Foundation.framework */; };
+		152D0C800000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E9E5000000000000000000 /* CoreGraphics.framework */; };
+		16FE35000000000000000000 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A1D1800000000000000000 /* MainStoryboard.storyboard */; };
+		709122000000000000000000 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8484000000000000000000 /* Default.png */; };
+		D08072800000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F73D4800000000000000000 /* AppDelegate.h */; };
+		45D038000000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 618D10800000000000000000 /* AppDelegate.m */; };
+		BB1FFD800000000000000000 /* MainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = F299AE800000000000000000 /* MainViewController.h */; };
+		A5BF88800000000000000000 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306FC3000000000000000000 /* MainViewController.m */; };
+		36CC26800000000000000000 /* FlipsideViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 6E45D7800000000000000000 /* FlipsideViewController.h */; };
+		905F13800000000000000000 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D8C4800000000000000000 /* FlipsideViewController.m */; };
+		CE3528000000000000000000 /* DataSrvcConsViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 5AED90000000000000000000 /* DataSrvcConsViewController.h */; };
+		C0B3C8000000000000000000 /* DataSrvcConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFE9E800000000000000000 /* DataSrvcConsViewController.m */; };
+		D4918B800000000000000000 /* DistrDevTypController.h in Sources */ = {isa = PBXBuildFile; fileRef = F04E64000000000000000000 /* DistrDevTypController.h */; };
+		659E29800000000000000000 /* DistrDevTypController.m in Sources */ = {isa = PBXBuildFile; fileRef = 815B02000000000000000000 /* DistrDevTypController.m */; };
+		BF3116800000000000000000 /* VolDistrController.h in Sources */ = {isa = PBXBuildFile; fileRef = DAEDEF000000000000000000 /* VolDistrController.h */; };
+		FD072B000000000000000000 /* VolDistrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA8D000000000000000000 /* VolDistrController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D0FA94800000000000000000 /* Xplore_Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Xplore_Lite.app"; path = "Xplore_Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		464A5A000000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		D756F8000000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		686396000000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		30E9E5000000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		10A1D1800000000000000000 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "MainStoryboard.storyboard"; path = "MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		DF8484000000000000000000 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default.png"; path = "Default.png"; sourceTree = "<group>"; };
+		3F73D4800000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		618D10800000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		F299AE800000000000000000 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MainViewController.h"; path = "MainViewController.h"; sourceTree = "<group>"; };
+		306FC3000000000000000000 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MainViewController.m"; path = "MainViewController.m"; sourceTree = "<group>"; };
+		6E45D7800000000000000000 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FlipsideViewController.h"; path = "FlipsideViewController.h"; sourceTree = "<group>"; };
+		C7D8C4800000000000000000 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FlipsideViewController.m"; path = "FlipsideViewController.m"; sourceTree = "<group>"; };
+		5AED90000000000000000000 /* DataSrvcConsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DataSrvcConsViewController.h"; path = "DataSrvcConsViewController.h"; sourceTree = "<group>"; };
+		7AFE9E800000000000000000 /* DataSrvcConsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "DataSrvcConsViewController.m"; path = "DataSrvcConsViewController.m"; sourceTree = "<group>"; };
+		F04E64000000000000000000 /* DistrDevTypController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DistrDevTypController.h"; path = "DistrDevTypController.h"; sourceTree = "<group>"; };
+		815B02000000000000000000 /* DistrDevTypController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "DistrDevTypController.m"; path = "DistrDevTypController.m"; sourceTree = "<group>"; };
+		DAEDEF000000000000000000 /* VolDistrController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VolDistrController.h"; path = "VolDistrController.h"; sourceTree = "<group>"; };
+		6BFA8D000000000000000000 /* VolDistrController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "VolDistrController.m"; path = "VolDistrController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FEDF6800000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED0A90000000000000000000 /* UIKit.framework in Frameworks */,
+				BB9A1F800000000000000000 /* MapKit.framework in Frameworks */,
+				4CA6BD800000000000000000 /* Foundation.framework in Frameworks */,
+				152D0C800000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8CCC14000000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				658DE0000000000000000000 /* Xplore_Lite */,
+				5C034AC00000000000000000 /* Frameworks */,
+				625FAE400000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		625FAE400000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0FA94800000000000000000 /* Xplore_Lite.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		5C034AC00000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				464A5A000000000000000000 /* UIKit.framework */,
+				D756F8000000000000000000 /* MapKit.framework */,
+				686396000000000000000000 /* Foundation.framework */,
+				30E9E5000000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		658DE0000000000000000000 /* Xplore_Lite */ = {
+			isa = PBXGroup;
+			children = (
+				3F73D4800000000000000000 /* AppDelegate.h */,
+				5AED90000000000000000000 /* DataSrvcConsViewController.h */,
+				DF8484000000000000000000 /* Default.png */,
+				F04E64000000000000000000 /* DistrDevTypController.h */,
+				6E45D7800000000000000000 /* FlipsideViewController.h */,
+				10A1D1800000000000000000 /* MainStoryboard.storyboard */,
+				F299AE800000000000000000 /* MainViewController.h */,
+				DAEDEF000000000000000000 /* VolDistrController.h */,
+				6CFF8E800000000000000000 /* Supporting Files */,
+			);
+			name = "Xplore_Lite";
+			sourceTree = "<group>";
+		};
+		6CFF8E800000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				618D10800000000000000000 /* AppDelegate.m */,
+				7AFE9E800000000000000000 /* DataSrvcConsViewController.m */,
+				815B02000000000000000000 /* DistrDevTypController.m */,
+				C7D8C4800000000000000000 /* FlipsideViewController.m */,
+				306FC3000000000000000000 /* MainViewController.m */,
+				6BFA8D000000000000000000 /* VolDistrController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		51F339800000000000000000 /* Xplore_Lite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BD13C400000000000000000 /* Build configuration list for PBXNativeTarget "Xplore_Lite" */;
+			buildPhases = (
+				874458000000000000000000 /* Sources */,
+				3FEDF6800000000000000000 /* Frameworks */,
+				24311E000000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Xplore_Lite";
+			productName = "Xplore_Lite";
+			productReference = D0FA94800000000000000000 /* Xplore_Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD20FC000000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = { };
+			buildConfigurationList = 4EC507C00000000000000000 /* Build configuration list for PBXProject "Xplore_Lite" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8CCC14000000000000000000;
+			productRefGroup = 625FAE400000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				51F339800000000000000000 /* Xplore_Lite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24311E000000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16FE35000000000000000000 /* MainStoryboard.storyboard in Resources */,
+				709122000000000000000000 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		874458000000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08072800000000000000000 /* AppDelegate.h in Sources */,
+				45D038000000000000000000 /* AppDelegate.m in Sources */,
+				BB1FFD800000000000000000 /* MainViewController.h in Sources */,
+				A5BF88800000000000000000 /* MainViewController.m in Sources */,
+				36CC26800000000000000000 /* FlipsideViewController.h in Sources */,
+				905F13800000000000000000 /* FlipsideViewController.m in Sources */,
+				CE3528000000000000000000 /* DataSrvcConsViewController.h in Sources */,
+				C0B3C8000000000000000000 /* DataSrvcConsViewController.m in Sources */,
+				D4918B800000000000000000 /* DistrDevTypController.h in Sources */,
+				659E29800000000000000000 /* DistrDevTypController.m in Sources */,
+				BF3116800000000000000000 /* VolDistrController.h in Sources */,
+				FD072B000000000000000000 /* VolDistrController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		620732800000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		7DC40B000000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "Xplore_Lite";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4EC507C00000000000000000 /* Build configuration list for PBXProject "Xplore_Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				620732800000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		7BD13C400000000000000000 /* Build configuration list for PBXNativeTarget "Xplore_Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DC40B000000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD20FC000000000000000000 /* Project object */;
+}
