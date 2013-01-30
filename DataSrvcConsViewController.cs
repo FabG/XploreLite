@@ -145,7 +145,9 @@ namespace Xplore_Lite
 					DSCDateButton.SetTitle(dateButtonTitle, UIControlState.Normal);
 
 					// Loading indicator
-					View.Add (loadingOverlay);
+					InvokeOnMainThread (delegate {
+						DSCUIView.Add (loadingOverlay);
+					});
 					
 					// Send request with new date (format = "Days~08/10/2012~08/10/2012")
 					DateFilter = "Days~" + datePickerResult[0] + "/" 
